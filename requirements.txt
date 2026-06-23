@@ -1,0 +1,24 @@
+# ── Phase 1: Data Download & Patch Generation ──────────────────────────────
+# Install with:
+#   pip install -r requirements.txt --break-system-packages   (Ubuntu 22.04+)
+#   OR use a venv:  python -m venv .venv && source .venv/bin/activate
+# Google Earth Engine + geemap for programmatic download
+earthengine-api>=0.1.370
+geemap>=0.30.0
+
+# GeoTIFF / raster I/O
+rasterio>=1.3.0
+tifffile>=2023.1.1
+GDAL>=3.6.0        # apt: sudo apt install gdal-bin python3-gdal
+                   # or: conda install -c conda-forge gdal
+
+# Numerical / image processing
+numpy>=1.24.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# ── Phase 2–4: SR + Colorization (install when needed) ────────────────────
+# torch>=2.0.0
+# torchvision>=0.15.0
+# basicsr>=1.4.2
+# piq>=0.8.0

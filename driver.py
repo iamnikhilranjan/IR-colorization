@@ -8,7 +8,7 @@ def run_script(script_name, logger, *args):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     scripts_dir = os.path.join(base_dir, 'scripts')
     script_path = os.path.join(scripts_dir, script_name)
-    command = ['python', script_path] + list(args)
+    command = ['python3', script_path] + list(args)
     logger.info(f"Running: {' '.join(command)}")
     try:
         # Add the project root to PYTHONPATH so scripts can import from utils

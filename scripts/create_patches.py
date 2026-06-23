@@ -43,7 +43,7 @@ def save_as_png(data, path):
 
 def create_patches(input_root, output_root):
     os.makedirs(output_root, exist_ok=True)
-    logger = setup_logging(output_root)
+    logger = setup_logging(os.path.dirname(output_root))
     
     if not os.path.exists(input_root):
         logger.error(f"Input root directory {input_root} does not exist.")
@@ -55,9 +55,10 @@ def create_patches(input_root, output_root):
     products = set()
     for f in all_files:
         filename = os.path.basename(f)
-        # Assume filename format: {product_id}_...
-        product_id = filename.split('_')[0]
-        products.add(product_id)
+        # Extract product_id from filename (e.g., SCENE_001_tir_100m.tif -> SCENE_001)
+        product_id = filename.split('_tir')[0].split('_rgb')[0]
+        if product_id:
+            products.add(product_id)
 
     logger.info(f"Found {len(products)} products in {input_root}")
 
