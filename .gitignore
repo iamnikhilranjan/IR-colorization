@@ -24,3 +24,6 @@ Thumbs.db
 # IDE configurations
 .vscode/
 .idea/
+
+# Documentation to ignore
+Phase1_Documentation.md
