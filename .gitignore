@@ -29,6 +29,5 @@ Thumbs.db
 Phase1_Documentation.md
 
 # Phase 2: checkpoints and SR results
-# Keep the README but ignore model weight files (.pth)
-checkpoints/*.pth
+checkpoints/
 output/sr_results/
