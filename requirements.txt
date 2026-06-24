@@ -17,8 +17,6 @@ numpy>=1.24.0
 opencv-python>=4.8.0
 Pillow>=10.0.0
 
-# ── Phase 2–4: SR + Colorization (install when needed) ────────────────────
-# torch>=2.0.0
-# torchvision>=0.15.0
-# basicsr>=1.4.2
-# piq>=0.8.0
+# ── Phase 2–4: SR + Colorization ──────────────────────────────────────────
+torch>=2.0.0
+torchvision>=0.15.0
