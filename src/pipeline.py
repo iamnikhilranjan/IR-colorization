@@ -55,7 +55,7 @@ class IRColorizationPipeline:
         self.device = torch.device(device)
 
         # ── Load SR model ────────────────────────────────────────────────────
-        self.sr = RRDBNet(in_channels=1, out_channels=1,
+        self.sr = RRDBNet(num_in_ch=1, num_out_ch=1,
                           num_feat=64, num_block=num_blocks, scale=2).to(self.device)
         sr_ckpt = torch.load(sr_checkpoint, map_location=self.device, weights_only=False)
         self.sr.load_state_dict(sr_ckpt["model"])
