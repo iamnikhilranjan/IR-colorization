@@ -180,12 +180,12 @@ def evaluate(args):
             log.warning("Colorizer not loaded — using SR grayscale as RGB.")
 
         # ── Metrics ───────────────────────────────────────────────────────────
-        psnr_v = psnr(rgb_pred, rgb_gt_norm)
-        ssim_v = ssim_np(rgb_pred, rgb_gt_norm)
+        psnr_v = float(psnr(rgb_pred, rgb_gt_norm))
+        ssim_v = float(ssim_np(rgb_pred, rgb_gt_norm))
         l1_v   = float(np.mean(np.abs(rgb_pred - rgb_gt_norm)))
 
         meta = dict(scene=scene_id, psnr=psnr_v, ssim=ssim_v,
-                    l1=l1_v, sr_ms=sr_ms, color_ms=color_ms)
+                    l1=l1_v, sr_ms=float(sr_ms), color_ms=float(color_ms))
         results.append(meta)
 
         log.info(
@@ -201,11 +201,11 @@ def evaluate(args):
             )
 
     # ── Aggregate ─────────────────────────────────────────────────────────────
-    mean_psnr  = np.mean([r["psnr"]     for r in results])
-    mean_ssim  = np.mean([r["ssim"]     for r in results])
-    mean_l1    = np.mean([r["l1"]       for r in results])
-    mean_sr    = np.mean([r["sr_ms"]    for r in results])
-    mean_color = np.mean([r["color_ms"] for r in results])
+    mean_psnr  = float(np.mean([r["psnr"]     for r in results]))
+    mean_ssim  = float(np.mean([r["ssim"]     for r in results]))
+    mean_l1    = float(np.mean([r["l1"]       for r in results]))
+    mean_sr    = float(np.mean([r["sr_ms"]    for r in results]))
+    mean_color = float(np.mean([r["color_ms"] for r in results]))
     total_ms   = mean_sr + mean_color
 
     # Save CSV
