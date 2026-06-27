@@ -168,8 +168,8 @@ def evaluate(args):
             rgb_gt_np   = ((rgb_target.numpy()        + 1) / 2).clip(0, 1)
             tir_norm_np = gen_in.numpy()                   # (2,512,512), ch0=TIR
 
-            psnr_v = psnr(rgb_pred_np, rgb_gt_np)
-            ssim_v = ssim_np(rgb_pred_np, rgb_gt_np)
+            psnr_v = float(psnr(rgb_pred_np, rgb_gt_np))
+            ssim_v = float(ssim_np(rgb_pred_np, rgb_gt_np))
             l1_v   = float(np.mean(np.abs(rgb_pred_np - rgb_gt_np)))
 
             log.info(f"  {scene_id:40s}  PSNR={psnr_v:.2f} dB  SSIM={ssim_v:.4f}  L1={l1_v:.5f}")
@@ -189,9 +189,9 @@ def evaluate(args):
     ssim_vals = [r["ssim"] for r in results]
     l1_vals   = [r["l1"]   for r in results]
 
-    mean_psnr = np.mean(psnr_vals);  std_psnr = np.std(psnr_vals)
-    mean_ssim = np.mean(ssim_vals);  std_ssim = np.std(ssim_vals)
-    mean_l1   = np.mean(l1_vals)
+    mean_psnr = float(np.mean(psnr_vals)); std_psnr = float(np.std(psnr_vals))
+    mean_ssim = float(np.mean(ssim_vals)); std_ssim = float(np.std(ssim_vals))
+    mean_l1   = float(np.mean(l1_vals))
 
     # Save CSV
     csv_path = os.path.join(args.results_dir, "metrics_summary.csv")
