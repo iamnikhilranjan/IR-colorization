@@ -27,6 +27,12 @@ Thumbs.db
 
 # Documentation to ignore
 Phase1_Documentation.md
+Phase2_Documentation.md
+Phase3_Documentation.md
+PPT_Content.md
+input.zip
+patches_data.zip
+
 
 # Phase 2: checkpoints and SR results
 checkpoints/

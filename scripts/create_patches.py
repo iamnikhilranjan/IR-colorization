@@ -89,8 +89,9 @@ def create_patches(input_root, output_root):
         logger.info(f"Generating full dataset patches for {product_id}...")
 
         count = 0
-        for y in range(0, h200 - 256 + 1, 256):
-            for x in range(0, w200 - 256 + 1, 256):
+        stride = 32
+        for y in range(0, h200 - 256 + 1, stride):
+            for x in range(0, w200 - 256 + 1, stride):
                 patch_200m_tir = tir_200m[..., y:y+256, x:x+256]
 
                 y100, x100 = 2*y, 2*x
