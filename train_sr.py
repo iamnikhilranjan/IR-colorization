@@ -45,6 +45,7 @@ from src.dataset import build_dataloaders
 from src.models.rrdbnet import build_model
 
 # ── Logging setup ─────────────────────────────────────────────────────────
+os.makedirs("output/sr_results", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="[%(asctime)s] %(levelname)s — %(message)s",
